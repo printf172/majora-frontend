@@ -16,3 +16,5 @@ npm run build
 // 上传
 sh publish.sh
 ```
+
+更多产品介绍，请移步： http://majora.iinti.cn/majora-doc/index.html
