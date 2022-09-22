@@ -209,25 +209,26 @@ const Form = () => {
           reload={() => setRefresh(+new Date())}/>
       )
     }, {
-      key: "malenia.systemNotice",
+      key: "majora.systemNotice",
       name: "系统通告信息",
       desc: "将会将文本推送到每个用户avatar",
       component: (
         <SingleInputItem
           placeholder="系统通告信息"
-          initKey="malenia.systemNotice"
-          initValue={configs["malenia.systemNotice"]}
+          initKey="majora.systemNotice"
+          initValue={configs["majora.systemNotice"]}
           reload={() => setRefresh(+new Date())}/>
       )
     }, {
-      key: "malenia.docNotice",
+      key: "majora.docNotice",
       name: "文档首页通告信息",
       desc: "文档首页通告信息，在文档首页渲染的一个html片段，一般用于指定联系方式（支持二维码等）",
       component: (
         <SingleInputItem
+          multiline
           placeholder="文档首页通告信息"
-          initKey="malenia.docNotice"
-          initValue={configs["malenia.docNotice"]}
+          initKey="majora.docNotice"
+          initValue={configs["majora.docNotice"]}
           reload={() => setRefresh(+new Date())}/>
       )
     },

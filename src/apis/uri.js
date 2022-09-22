@@ -8,6 +8,7 @@ export default {
   getUser: "/majora-api/user-info/userInfo get", // 获取用户信息
   notice: "/majora-api/user-info/notice get", // 系统通知
   userAdd: "/majora-api/user-info/createUser get", // 创建用户
+  grantAdmin: "/majora-api/user-info/grantAdmin get", // 模拟登录
   userList: "/majora-api/user-info/listUser get", // 用户列表
   setConfig: "/majora-api/system/setConfig post", // config 单条
   setConfigs: "/majora-api/system/setConfigs post", // config all

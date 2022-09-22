@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import Pagination from '@material-ui/lab/Pagination';
 import DirectionsRailwayIcon from '@material-ui/icons/DirectionsRailway';
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import { makeStyles } from '@material-ui/styles';
 import { Table } from 'views/common';
 import { useSnackbar } from 'notistack';
@@ -81,6 +82,26 @@ const DataTable = props => {
     });
   }
 
+  const grantAdmin = (item) => {
+    apis.grantAdmin({
+      userName: item.userName,
+      isAdmin: !item.isAdmin,
+    }).then(res => {
+      if (res.status !== 0) {
+        enqueueSnackbar(res.errorMessage || res.message, {
+          variant: 'error',
+          anchorOrigin: {
+            vertical: 'top',
+            horizontal: 'center',
+          },
+        });
+      } else {
+        setRefresh(+new Date());
+      }
+    });
+  };
+
+
   return (
     <Card
       {...rest}
@@ -107,6 +128,13 @@ const DataTable = props => {
                     className={classes.tableButton}
                     onClick={() => doLogin(item)}
                     variant="contained">登录</Button>
+                  <Button
+                    startIcon={<SupervisorAccountIcon style={{ fontSize: 16 }} />}
+                    size="small"
+                    color="primary"
+                    className={classes.tableButton}
+                    onClick={() => grantAdmin(item)}
+                    variant="contained">{item.isAdmin ? "移除管理员" : "升级管理员"}</Button>
                 </>
               )
             }
